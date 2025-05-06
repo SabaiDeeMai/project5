@@ -1,5 +1,4 @@
-import pytest
-from unittest.mock import patch, mock_open, MagicMock
+from unittest.mock import patch, mock_open
 from src import transactions
 import pandas as pd
 
@@ -61,4 +60,3 @@ def test_get_read_excel_transact(mock_read_excel):
 def test_get_read_excel_transact_file_not_found(mock_read_excel):
     result = transactions.get_read_excel_transact("nonexistent.xlsx")
     assert result == []
-
