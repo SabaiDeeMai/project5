@@ -28,8 +28,9 @@ def load_transactions(file_path: str) -> List[Dict]:
             if isinstance(data, list):
                 utils_logger.info("Функция завершена")
                 return data
-            utils_logger.debug("Файл пустой")
-            return []
+            else:
+                utils_logger.debug("Файл пустой")
+                return []
     except (FileNotFoundError, json.JSONDecodeError):
         utils_logger.error("Файл не найден")
         return []
