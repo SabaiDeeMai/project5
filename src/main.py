@@ -48,7 +48,7 @@ def filter_rubles(transactions: List[Dict]) -> List[Dict]:
 
 
 def count_transactions_by_category(transactions: List[Dict],
-                                   category_counter: Dict[str, int] = None) -> Dict[str, int]:
+                                   category_counter: Counter = None) -> Counter:
     """
     Функция подсчитывает количество операций для каждой категории, основываясь на поле 'description'
     в каждой транзакции.
@@ -60,7 +60,7 @@ def count_transactions_by_category(transactions: List[Dict],
         description = transaction.get("description", "")
         category_counter[description] += 1
 
-    return dict(category_counter)
+    return category_counter
 
 
 def print_transactions(transactions: List[Dict]) -> None:
@@ -75,7 +75,7 @@ def print_transactions(transactions: List[Dict]) -> None:
     print("Количество транзакций по категориям:")
     for category, count in category_count.items():
         print(f"{category}: {count} операций")
-    print(f"Всего банковских операций в выборке: {len(transactions)}\n")
+    print(f"Всего банковских операций в выборке: {category_count.total()}\n")
     print("\nРаспечатываю итоговый список транзакций...\n")
 
     for txn in transactions:
