@@ -1,5 +1,3 @@
-from typing import List, Dict, Iterator
-
 transactions = (
     [
         {
@@ -79,6 +77,7 @@ transactions = (
         }
     ]
 )
+
 
 def filter_by_currency(transactions, currency_code):
     """Генератор, который возвращает только транзакции, где валюта соответствует currency_code."""

@@ -31,7 +31,7 @@ def get_read_csv_transact(csv_path: str) -> list[dict]:
     Функция принимает файл CSV и возвращает список словарей
     """
     transact_list = []
-    with open(csv_path) as file:
+    with open(csv_path, encoding='utf-8-sig') as file:
         reader = csv.DictReader(file, delimiter=';')
         csv_transactions_logger.info(f"Файл получен {csv_path}")
         for row in reader:
